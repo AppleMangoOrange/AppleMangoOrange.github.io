@@ -10,3 +10,17 @@ const observer = new IntersectionObserver((entries) => {
 }, { rootMargin: '-35% 0px -55% 0px' });
 
 sections.forEach((section) => observer.observe(section));
+
+const gear = document.querySelector('.scroll-gear');
+let animationFrame;
+
+function rotateGear() {
+  gear.style.setProperty('--gear-rotation', `${window.scrollY * 0.16}deg`);
+  animationFrame = undefined;
+}
+
+window.addEventListener('scroll', () => {
+  if (!animationFrame) animationFrame = requestAnimationFrame(rotateGear);
+}, { passive: true });
+
+rotateGear();

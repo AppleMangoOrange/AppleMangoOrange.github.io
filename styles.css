@@ -93,20 +93,24 @@ nav a:hover { color: var(--paper); }
 }
 
 .hero::after {
-  position: absolute;
-  top: 48%;
-  right: 8%;
-  width: 182px;
-  height: 182px;
-  border: 1px solid #5a5c4f;
-  border-radius: 50%;
-  box-shadow: 0 0 0 18px #23261f, 0 0 0 19px #42453b;
-  content: "";
-  opacity: 0.45;
+  display: none;
 }
 
 .hero-copy,
 .terminal-card { position: relative; z-index: 1; }
+
+.scroll-gear {
+  position: absolute;
+  z-index: 2;
+  top: 12%;
+  right: 9%;
+  width: clamp(120px, 16vw, 230px);
+  display: block;
+  opacity: 0.9;
+  pointer-events: none;
+  transform: rotate(var(--gear-rotation, 0deg));
+  will-change: transform;
+}
 
 .eyebrow,
 .section-label,
@@ -329,6 +333,19 @@ h1 em { color: var(--orange); font-style: normal; }
 .skill-list p { margin: 0; font: 600 24px var(--display); text-transform: uppercase; }
 .skill-list small { grid-column: 2; color: #b3b0a5; font-size: 9px; line-height: 1.6; }
 
+.cryptography { position: relative; }
+.cryptography small { padding-right: 84px; }
+
+.combinator {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  right: 0;
+  display: block;
+  width: 82px;
+  image-rendering: pixelated;
+}
+
 .contact-section { padding: 110px max(8vw, 36px) 40px; background: var(--orange); color: var(--ink); }
 .contact-section .eyebrow { color: #352116; }
 .contact-section h2 { margin: 30px 0 8px; }
@@ -362,7 +379,7 @@ footer {
   .topbar nav { display: none; }
   .hero { display: block; min-height: auto; padding: 82px 28px 70px; }
   .terminal-card { margin-top: 55px; }
-  .hero::after { display: none; }
+  .scroll-gear { top: 13%; right: 7%; width: 92px; }
   .hero-actions { flex-direction: column; gap: 20px; align-items: flex-start; }
   .about-section { display: block; }
   .section { padding: 75px 28px; }
